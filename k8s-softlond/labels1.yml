@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-labels
+  labels:
+    name: myapp-labels
+    ambiente: testing
+spec:
+  containers:
+  - name: webserver
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80

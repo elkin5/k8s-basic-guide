@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-testing
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: myapp-labels
+  template:
+    metadata:
+      name: myapp
+      labels:
+        name: myapp-labels
+    spec:
+      containers:
+        - name: webserver-nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
